@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import java.util.Arrays;
 
-public class Ejercicio1_4 {
+public class LeerNombre {
 
     public static void main(String[] args) throws IOException {
         if (args.length <= 0){
@@ -17,5 +17,4 @@ public class Ejercicio1_4 {
             System.exit(1);
         }
     }
-
 }
