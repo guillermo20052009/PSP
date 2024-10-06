@@ -1,16 +1,14 @@
 package pack2;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class Actividad1_5 {
     public static void main(String[] args) throws IOException {
         // Establecer el directorio de trabajo Inventado para comprobar que pasa
-        File fichero = new File("ArchivoInventado"); // Salta la excepcion IO que basicamente nos indica que no se ha podido abrir.
+        File fichero = new File("/home/guillermo/Escritorio/psp/out/production/Tema1PSP");
 
         // Invocar la clase LeerNombre correctamente con el paquete
-        ProcessBuilder p = new ProcessBuilder("/home/usuario/.jdks/openjdk-23/bin/java", "pack.LeerNombre", "Javi");
+        ProcessBuilder p = new ProcessBuilder("java", "pack.LeerNombr", "Javi");
 
         // Establecer el directorio de trabajo para ProcessBuilder
         p.directory(fichero);
@@ -18,14 +16,14 @@ public class Actividad1_5 {
         // Iniciar el proceso
         Process p2 = p.start();
 
-        // En el siguiente bloque vamos a imprimir los argumentos del main del programa al que invocamos
+        // En el siguiente bloque vamos a imprimir los errores que pueden surgir al invocar el programa como no existe pues nos ales un error de que no existe
         try {
-            InputStream is = p2.getInputStream();
-            int c;
-            while ((c = is.read()) != -1){
-                System.out.print((char)c);
+            InputStream er = p2.getErrorStream();
+            BufferedReader brer = new BufferedReader(new InputStreamReader(er));
+            String liner = null;
+            while ((liner = brer.readLine())!=null){
+                System.out.println("ERRROR >"+liner);
             }
-            is.close();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

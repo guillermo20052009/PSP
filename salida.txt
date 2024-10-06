@@ -1,0 +1,2 @@
+Introduce una cadena
+Se ha introducido la cadena: hola manuel

@@ -1,6 +1,7 @@
-package pack4;
+package pack4.pack4;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Actividad1_7 {
     public static void main(String[] args) throws IOException {

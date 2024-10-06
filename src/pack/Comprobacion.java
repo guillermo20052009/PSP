@@ -7,10 +7,10 @@ import java.io.InputStream;
 public class Comprobacion {
     public static void main(String[] args) throws IOException {
         // Establecer el directorio de trabajo correcto
-        File fichero = new File("/home/usuario/Escritorio/Tema1PSP/out/production/Tema1PSP");
+        File fichero = new File("/home/guillermo/Escritorio/psp/out/production/Tema1PSP");
 
         // Invocar la clase LeerNombre correctamente con el paquete
-        ProcessBuilder p = new ProcessBuilder("/home/usuario/.jdks/openjdk-23/bin/java", "pack.LeerNombre", "Javi");
+        ProcessBuilder p = new ProcessBuilder("java", "pack.LeerNombre", "Javi");
 
         // Establecer el directorio de trabajo para ProcessBuilder
         p.directory(fichero);
@@ -29,6 +29,7 @@ public class Comprobacion {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
 
         // En el siguiente bloque imprimiremos el valor de salida del programa al que invocamos
         int salida;
