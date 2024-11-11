@@ -13,7 +13,7 @@ public class Ejemplo1 extends Thread{
             } catch (InterruptedException e){}
             cont++;
         }
-        System.out.println("Fin hilo"+this.getName());
+
     }
     public int getCont() {
         return cont;
