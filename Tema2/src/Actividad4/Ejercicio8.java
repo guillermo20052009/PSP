@@ -1,4 +1,4 @@
-package Actividad4Guillermo;
+package Actividad4;
 
 import javax.swing.*;
 import java.awt.*;

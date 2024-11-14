@@ -2,6 +2,9 @@ package Actividad2;
 
 public class Ejercicio2 implements Runnable {
 
+    //Sin el slepp no se aprecia que son 5 ejecuciones diferentes, al poner sleep y esperar el tiempo que indiquemos se diferencias
+    // los 5 hilos perfectamente
+
     // Metodo que se ejecuta cuando el hilo es iniciado
     @Override
     public void run() {
