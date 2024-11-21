@@ -14,7 +14,7 @@ public class ProductorPing extends Thread {
     }
     public void dormir(){
         try {
-            sleep(300);
+            sleep(600);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

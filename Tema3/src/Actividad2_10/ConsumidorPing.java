@@ -23,7 +23,7 @@ public class ConsumidorPing extends Thread {
                 throw new RuntimeException(e);
             }
             try {
-                sleep(310);
+                sleep(610);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
