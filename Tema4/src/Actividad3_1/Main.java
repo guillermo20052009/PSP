@@ -28,7 +28,9 @@ public class Main {
     public static void main(String[] args) {
         try{
             InetAddress Host=null;
-            Host=InetAddress.getByName("localhost");
+            System.out.println("Introduce el nombre del host: ");
+            String host = sc.nextLine();
+            Host=InetAddress.getByName(host);
             pruebaMetodos(Host);
         } catch (UnknownHostException e){
             System.out.println("Host no encontrado");
