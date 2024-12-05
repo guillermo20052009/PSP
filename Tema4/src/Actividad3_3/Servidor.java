@@ -1,5 +1,6 @@
 package Actividad3_3;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -7,19 +8,28 @@ import java.net.Socket;
 public class Servidor {
     public static void main(String[] args) {
         int puerto = 8080;  // Puerto en el que el servidor escucha
+        int numSockets = 1; // Número de clientes que aceptará el servidor
 
-        try {
-            // Crea el ServerSocket y empieza a escuchar el puerto
-            ServerSocket serverSocket = new ServerSocket(puerto);
+        try (ServerSocket serverSocket = new ServerSocket(puerto)) {
             System.out.println("Servidor escuchando en el puerto " + puerto);
 
-            // Aceptar dos clientes
-            Socket socket = serverSocket.accept();  // Acepta la primera conexión de cliente
-            System.out.println("Primer cliente conectado.");
+            for (int clienteNumero = 1; clienteNumero <= numSockets; clienteNumero++) {
+                // Aceptar una conexión de cliente
+                Socket socket = serverSocket.accept();
+                System.out.println("Cliente " + clienteNumero + " conectado.");
 
-            serverSocket.close();  // Cerrar el servidor
-            System.out.println("Servidor cerrado.");
+                // Enviar mensaje al cliente
+                try (DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream())) {
+                    String mensaje = "Eres el cliente número " + clienteNumero;
+                    dataOutputStream.writeUTF(mensaje);
+                    System.out.println("Mensaje enviado al cliente " + clienteNumero + ": " + mensaje);
+                }
 
+                // Cerrar el socket del cliente
+                socket.close();
+            }
+
+            System.out.println("Se alcanzó el límite de " + numSockets + " clientes. Cerrando el servidor.");
         } catch (IOException e) {
             System.out.println("Error en el servidor: " + e.getMessage());
         }
