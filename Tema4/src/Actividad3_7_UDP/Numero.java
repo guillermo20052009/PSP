@@ -1,4 +1,4 @@
-package Actividad3_7;
+package Actividad3_7_UDP;
 
 import java.io.Serializable;
 
