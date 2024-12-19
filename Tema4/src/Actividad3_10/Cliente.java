@@ -6,7 +6,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.net.Socket;
 
-public class Cliente{
+public class Cliente {
     private JFrame frame;
     private JTextField idJugadorField, numeroField;
     private JLabel intentosLabel, estadoJuegoLabel;

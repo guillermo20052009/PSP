@@ -2,18 +2,27 @@ package Actividad3_7_UDP;
 
 import java.io.Serializable;
 
+/**
+ * Clase Numero que implementa Serializable para ser enviada/recibida en objetos serializados.
+ */
 public class Numero implements Serializable {
-    private int numero;
-    private long cuadrado;
-    private long cubo;
+    private int numero;         // Número original
+    private long cuadrado;      // Cuadrado del número
+    private long cubo;          // Cúbico del número
 
-    public Numero(int numero, long cuadrado, long cubo) {
-         this.numero = numero;
-         this.cuadrado = cuadrado;
-         this.cubo = cubo;
+    // Constructor por defecto
+    public Numero() {
+        super();
     }
-    public Numero() {super();}
 
+    // Constructor con parámetros
+    public Numero(int numero, long cuadrado, long cubo) {
+        this.numero = numero;
+        this.cuadrado = cuadrado;
+        this.cubo = cubo;
+    }
+
+    // Getter y setter para el número
     public int getNumero() {
         return numero;
     }
@@ -22,14 +31,7 @@ public class Numero implements Serializable {
         this.numero = numero;
     }
 
-    public long getCubo() {
-        return cubo;
-    }
-
-    public void setCubo(long cubo) {
-        this.cubo = cubo;
-    }
-
+    // Getter y setter para el cuadrado
     public long getCuadrado() {
         return cuadrado;
     }
@@ -38,6 +40,16 @@ public class Numero implements Serializable {
         this.cuadrado = cuadrado;
     }
 
+    // Getter y setter para el cubo
+    public long getCubo() {
+        return cubo;
+    }
+
+    public void setCubo(long cubo) {
+        this.cubo = cubo;
+    }
+
+    // Método toString para representar el objeto en una cadena de texto
     @Override
     public String toString() {
         return "Numero{" +

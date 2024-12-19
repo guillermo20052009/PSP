@@ -1,4 +1,5 @@
 package Ejercicio1;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -33,4 +34,3 @@ public class Cliente {
         }
     }
 }
-

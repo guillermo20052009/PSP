@@ -4,7 +4,9 @@ import java.net.*;
 import java.io.*;
 
 public class Servidor {
+    // Puerto en el que el servidor escucha las peticiones UDP
     private static final int PUERTO = 12345;
+    // Tamaño del buffer para los paquetes recibidos y enviados
     private static final int TAMANO_BUFFER = 256;
 
     public static void main(String[] args) {
@@ -29,11 +31,14 @@ public class Servidor {
                     new Alumno("A5", "Ana Sánchez", curso5, 10)
             };
 
+            // Bucle infinito para esperar y procesar peticiones UDP
             while (true) {
+                // Recibir un paquete UDP del cliente
                 socket.receive(paqueteRecibido);
                 String idAlumno = new String(paqueteRecibido.getData(), 0, paqueteRecibido.getLength());
 
                 Alumno alumnoEncontrado = null;
+                // Buscar el alumno en la lista de alumnos
                 for (Alumno alumno : alumnos) {
                     if (alumno.getIdAlumno().equals(idAlumno)) {
                         alumnoEncontrado = alumno;
@@ -42,12 +47,14 @@ public class Servidor {
                 }
 
                 byte[] respuesta;
+                // Si se encuentra el alumno, se genera la respuesta con sus datos
                 if (alumnoEncontrado != null) {
                     respuesta = (alumnoEncontrado.toString()).getBytes();
                 } else {
                     respuesta = ("Alumno no encontrado").getBytes();
                 }
 
+                // Enviar respuesta al cliente con la información del alumno o mensaje de "Alumno no encontrado"
                 DatagramPacket paqueteRespuesta = new DatagramPacket(respuesta, respuesta.length, paqueteRecibido.getAddress(), paqueteRecibido.getPort());
                 socket.send(paqueteRespuesta);
             }
