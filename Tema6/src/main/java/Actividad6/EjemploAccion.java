@@ -24,7 +24,7 @@ public class EjemploAccion implements PrivilegedAction<Object> {
             System.out.println("EL FICHERO NO EXISTE, LO CREO ...");
             try {
                 FileWriter fic = new FileWriter(f);
-                fic.write("Esta es una línea de texto");
+                fic.write("Esta es una línea de texto de guillermo sin gitclone aaaaa");
                 fic.close();
                 System.out.println("Fichero creado con datos...");
             } catch (IOException e) {
