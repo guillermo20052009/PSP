@@ -18,6 +18,7 @@ public class MainJaasAutenticacion {
             System.out.println("Usuario autenticado.....");
         } catch (LoginException e) {
             System.err.println("ERROR-> No se puede autenticar el usuario.");
+            System.out.println(e.getMessage());
         }
     }
 }
